@@ -2,6 +2,7 @@ var level = 1;
 var randomBtn;
 var order = [];
 var userOrder = [];
+var audio;
 
 var startButton = $(".btn-start");
 
@@ -36,9 +37,26 @@ function showOrder() {
 
   randomBtn = Math.ceil(Math.random() * 4); //generate Random
 
+  // Assign audio file
+  switch(randomBtn) {
+    case 1:
+      audio = new Audio("sounds/hollywood.mp3");
+      break;
+    case 2:
+      audio = new Audio("sounds/oh_my_gad.mp3");
+      break;
+    case 3:
+      audio = new Audio("sounds/yeah.mp3");
+      break;
+    case 4:
+      audio = new Audio("sounds/straigh_up.mp3");
+      break;
+  }
+  audio.play(); // play audio
+
   var randomBtnClass = ".btn-" + randomBtn; //get random Button
 
-  order.push(randomBtnClass + " btn"); //add to order
+  order.push(randomBtn.toString());
 
   $(randomBtnClass).addClass("btn-pressed"); //change appearance
 
@@ -50,9 +68,27 @@ function showOrder() {
 //Log User Pressed Button
 function handleButton() {
 
-  var pressedBtn = this;
+  var pressedBtn = this; // hold pressed button
+  var pressedBtnNum = $(this).attr('name'); // hold pressed button's number
 
-  userOrder.push("." + $(this).attr('class')); //add to userOrder
+  // Add audio file
+  switch(pressedBtnNum) {
+    case "1":
+      audio = new Audio("sounds/hollywood.mp3");
+      break;
+    case "2":
+      audio = new Audio("sounds/oh_my_gad.mp3");
+      break;
+    case "3":
+      audio = new Audio("sounds/yeah.mp3");
+      break;
+    case "4":
+      audio = new Audio("sounds/straigh_up.mp3");
+      break;
+  }
+  audio.play(); // play audio
+
+  userOrder.push(pressedBtnNum);
 
   $(pressedBtn).addClass("btn-pressed"); //change appearance
 
