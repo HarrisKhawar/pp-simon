@@ -15,7 +15,7 @@ body {
 }
 
 .status {
-  padding: 1vw;
+  padding: 20px;
   text-align: center;
 }
 
@@ -40,8 +40,8 @@ body {
 }
 
 .btn {
-  width: 12vw;
-  height: 12vw;
+  width: 200px;
+  height: 200px;
   border-style: solid;
   border-radius: 10%;
   border-color: black;
